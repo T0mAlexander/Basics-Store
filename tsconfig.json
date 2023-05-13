@@ -1,6 +1,14 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "target": "ES2022",
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@screens/*": ["src/screens/*"],
+      "@theme/*": ["src/theme/*"],
+      "@routes/*": ["src/routes/*"],
+      "@assets/*": ["src/assets/*"],
+    }
   }
 }
