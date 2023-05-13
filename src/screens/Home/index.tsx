@@ -17,15 +17,15 @@ export default function Home() {
 
   const SlideImages = [
     {
-      title: 'For the minimalists',
+      title: 'Elegance in simplicity',
       img: slide1
     },
     {
-      title: 'Hustle in style',
+      title: 'Dare to be remarkable',
       img: slide2
     },
     {
-      title: 'Fashion suits',
+      title: 'Stylishly with minimal',
       img: slide3
     },
   ]
