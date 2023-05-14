@@ -1,0 +1,132 @@
+//* Prisma Schema File
+//? learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  password      String         //TODO Convert a password into a hash
+  creation_date DateTime       @default(now())
+  notifications Notification[]
+  cartItems     Cart[]
+
+  @@map("users")
+}
+
+model Seller {
+  seller_id     String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  password      String
+  creation_date DateTime       @default(now())
+  products      Product[]
+  notifications Notification[]
+
+  @@map("sellers")
+}
+
+model Notification {
+  id           String   @id @default(uuid())
+  message      String
+  readCheck    Boolean  @default(false)
+  receipt_date DateTime @default(now())
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id])
+  seller       Seller   @relation(fields: [seller_id], references: [seller_id])
+  seller_id    String
+}
+
+model Cart {
+  user          User       @relation(fields: [user_id], references: [id])
+  user_id       String     @unique
+  items         CartItem[]
+  creation_date DateTime   @default(now())
+
+  @@map("user_cart")
+}
+
+model CartItem {
+  item_id       Int      @id @default(autoincrement())
+  product       Product  @relation(fields: [product_id], references: [product_id])
+  product_id    String
+  cart          Cart     @relation(fields: [cart_owner], references: [user_id])
+  cart_owner    String
+  quantity      Int
+  creation_date DateTime @default(now())
+
+  @@map("cart_items")
+}
+
+model Category {
+  category_id   Int       @id @default(autoincrement())
+  name          String
+  creation_date DateTime  @default(now())
+  products      Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  product_id      String       @id @default(uuid())
+  seller          Seller       @relation(fields: [seller_id], references: [seller_id])
+  seller_id       String
+  name            String
+  price           Float
+  photos          Photo[]
+  colours         Colour[]
+  product_details Description?
+  soldCount       Int          @default(0)
+  rating          Float        @default(0)
+  quantity        Int          @default(0)
+  creation_date   DateTime     @default(now())
+  stock           Int          @default(1)
+  category        Category     @relation(fields: [category_id], references: [category_id])
+  category_id     Int
+  isCartItem      CartItem[]
+
+  @@map("products")
+}
+
+model Photo {
+  id         Int     @id @default(autoincrement())
+  url        String  @unique
+  product    Product @relation(fields: [product_id], references: [product_id])
+  product_id String
+
+  @@map("product_photos")
+}
+
+model Colour {
+  id         Int      @id @default(autoincrement())
+  name       String[] @unique
+  product    Product  @relation(fields: [product_id], references: [product_id])
+  product_id String
+
+  @@map("colours")
+}
+
+enum Gender {
+  Male
+  Female
+  Unissex
+}
+
+model Description {
+  id         Int     @id @default(autoincrement())
+  product_id String  @unique
+  product    Product @relation(fields: [product_id], references: [product_id])
+  gender     Gender  @default(Unissex)
+  material   String  @unique
+  sleeveType String  @unique @default("normal")
+
+  @@map("product_description")
+}
