@@ -1,12 +1,35 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { StatusBar } from 'expo-status-bar'
-import { Container, LoginButton, LoginButtonText, PaginationContainer, RegisterButton, RegisterButtonText, SlideDescription, AnimatedSlideImg, SlideDot, SlideText, CarouselContainer, UserArea, style } from './styles'
+import {
+  Container,
+  LoginButton,
+  LoginButtonText,
+  PaginationContainer,
+  RegisterButton,
+  RegisterButtonText,
+  SlideDescription,
+  AnimatedSlideImg,
+  SlideDot,
+  SlideText,
+  CarouselContainer,
+  UserArea,
+  style,
+} from './styles'
 import { Dimensions } from 'react-native'
 import { useState } from 'react'
 import { light } from '@theme/index'
 import Carousel from 'react-native-reanimated-carousel'
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
-import { Gesture, GestureDetector, GestureHandlerRootView } from 'react-native-gesture-handler'
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated'
+import {
+  Gesture,
+  GestureDetector,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler'
 
 export default function Home() {
   const [CurrentSlide, SetCurrentSlide] = useState(0)
@@ -18,15 +41,15 @@ export default function Home() {
   const SlideImages = [
     {
       title: 'Elegance in simplicity',
-      img: slide1
+      img: slide1,
     },
     {
       title: 'Dare to be remarkable',
-      img: slide2
+      img: slide2,
     },
     {
       title: 'Stylishly with minimal',
-      img: slide3
+      img: slide3,
     },
   ]
 
@@ -35,29 +58,25 @@ export default function Home() {
 
   const Position = useSharedValue(0)
 
-  const SlideGesture = Gesture.Pan()
-    .onStart((Event) => {
-      Position.value = Event.translationX
-    })
+  const SlideGesture = Gesture.Pan().onStart((Event) => {
+    Position.value = Event.translationX
+  })
 
   const AnimatedStyles = useAnimatedStyle(() => ({
-    transform: [{ translateX: Position.value }]
+    transform: [{ translateX: Position.value }],
   }))
 
   const Opacity = useSharedValue(0)
   const FadeInScroll = () => {
-    Opacity.value = withTiming(
-      1,
-      {
-        duration: 500,
-        easing: Easing.ease
-      }
-    )
+    Opacity.value = withTiming(1, {
+      duration: 500,
+      easing: Easing.ease,
+    })
   }
 
   const TextAnimation = useAnimatedStyle(() => {
     return {
-      opacity: Opacity.value
+      opacity: Opacity.value,
     }
   })
 
@@ -76,7 +95,10 @@ export default function Home() {
               onScrollEnd={(index: number) => SetCurrentSlide(index)}
               onSnapToItem={(index) => SetCurrentSlide(index)}
               renderItem={({ item }) => (
-                <AnimatedSlideImg source={item.img} style={[{ height, width }, AnimatedStyles]} />
+                <AnimatedSlideImg
+                  source={item.img}
+                  style={[{ height, width }, AnimatedStyles]}
+                />
               )}
             />
           </GestureDetector>
@@ -94,8 +116,11 @@ export default function Home() {
             renderItem={({ index }) => (
               <SlideDot
                 key={index}
-                style={index === CurrentSlide ? { backgroundColor: light.colours.primary }
-                  : { backgroundColor: light.colours.text.altGray }}
+                style={
+                  index === CurrentSlide
+                    ? { backgroundColor: light.colours.primary }
+                    : { backgroundColor: light.colours.text.altGray }
+                }
               />
             )}
           />
@@ -113,13 +138,17 @@ export default function Home() {
           scrollAnimationDuration={2000}
           data={SlideImages}
           renderItem={({ item, index }) => (
-            <Animated.Text style={[style.SlideTitle, TextAnimation]} key={index} >
+            <Animated.Text
+              style={[style.SlideTitle, TextAnimation]}
+              key={index}
+            >
               {item.title}
             </Animated.Text>
           )}
         />
-        <SlideDescription>Matching Simplicity and Comfort
-          for your daily basic needs</SlideDescription>
+        <SlideDescription>
+          Matching Simplicity and Comfort for your daily basic needs
+        </SlideDescription>
       </SlideText>
       <UserArea>
         <RegisterButton activeOpacity={0.8}>

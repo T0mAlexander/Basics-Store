@@ -10,8 +10,8 @@ export const light = {
       gray: '#575757',
       lightGray: '#979797',
       darkGray: '#414141',
-      altGray: '#868686'
-    }
+      altGray: '#868686',
+    },
   },
 }
 
@@ -34,7 +34,7 @@ export const dark = {
       gray: '#575757',
       lightGray: '#979797',
       darkGray: '#414141',
-      altGray: '#868686'
-    }
+      altGray: '#868686',
+    },
   },
 }

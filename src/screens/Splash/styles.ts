@@ -13,6 +13,6 @@ export const style = StyleSheet.create({
     fontSize: 30,
     fontFamily: fonts.extraBold,
     textTransform: 'uppercase',
-    letterSpacing: 5
-  }
+    letterSpacing: 5,
+  },
 })

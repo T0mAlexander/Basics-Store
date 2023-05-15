@@ -1,5 +1,10 @@
 import { fonts, light } from '@theme/index'
-import { ImageProps, StyleSheet, TouchableOpacityProps, ViewProps } from 'react-native'
+import {
+  ImageProps,
+  StyleSheet,
+  TouchableOpacityProps,
+  ViewProps,
+} from 'react-native'
 import Animated from 'react-native-reanimated'
 import styled from 'styled-components/native'
 
@@ -18,7 +23,7 @@ const SlideImg: React.FC<ImageProps> = styled.Image`
   flex: 1;
   object-fit: fill;
   max-height: 566px;
-  `
+`
 export const AnimatedSlideImg = Animated.createAnimatedComponent(SlideImg)
 
 export const PaginationContainer: React.FC<ViewProps> = styled.View`
@@ -50,8 +55,8 @@ export const style = StyleSheet.create({
     marginTop: 40,
     letterSpacing: 1,
     fontSize: 24,
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
 })
 
 export const SlideDescription = styled.Text`
