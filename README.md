@@ -28,13 +28,13 @@
 
 - <img height="16" width="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" /> **Nest.js:** framework de desenvolvimento para Node.js, baseado na linguagem TypeScript e na arquitetura de aplicativos orientada por módulos. O Nest.js visa fornecer uma estrutura robusta e escalável para a criação de aplicativos back-end altamente eficientes e modernos
 
+- <img height="16" width="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/> **Node.js:** ambiente de execução JavaScript baseado no motor V8 do Google Chrome. Ele permite que o JavaScript seja executado no lado do servidor, permitindo a construção de aplicações web escaláveis e de alta performance
+
 - <img height="16" width="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" /> **Jest:** ferramenta de teste criado e mantida pela Meta Incorporation para aplicações baseadas em diversos frameworks e bibliotecas que permite a execução de testes unitários e de integração de forma simples e eficiente
 
 - <img height="16" width="15" style="border-radius: 30px" src="https://res.cloudinary.com/tommello/image/upload/v1683264139/express_js_icon_i3mjtq.png" /> **Express.js:** framework de desenvolvimento de aplicações web baseadas em Node.js, amplamente adotado pela comunidade de desenvolvedores. Ele permite criar APIs e aplicativos web de forma eficiente, fornecendo uma camada abstrata para lidar com tarefas comuns, como roteamento, manipulação de solicitações e respostas, gerenciamento de sessões e muito mais
 
 ### 🎯 Usos futuros e previstos
-
-- <img height="16" width="15" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/> **Node.js:** ambiente de execução JavaScript baseado no motor V8 do Google Chrome. Ele permite que o JavaScript seja executado no lado do servidor, permitindo a construção de aplicações web escaláveis e de alta performance
 
 - <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115038/dotenv_b14c3a.svg" /> **Dotenv:** biblioteca que permite carregar variáveis de ambiente a partir de um arquivo .env. Ele facilita a configuração de variáveis sensíveis, como chaves de API, em um ambiente de desenvolvimento e produção
 
