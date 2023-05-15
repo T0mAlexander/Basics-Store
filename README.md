@@ -205,7 +205,7 @@
 
 > ### 🔨 Em construção
 >
-> Esta seção encontra-se em construção e em breve será preenchida com instruções detalhadas sobre como instalar e utilizar a biblioteca
+> Esta seção encontra-se em construção e em breve será preenchida com instruções detalhadas sobre como instalar e utilizar esta aplicação
 
 ## ⚖️ Termos de uso
 
