@@ -1,7 +1,6 @@
 # sensible directories
 node_modules/
 .expo/
-.vscode/
 dist/
 npm-debug.*
 *.jks
@@ -13,8 +12,37 @@ npm-debug.*
 web-build/
 prisma/migrations/
 
+# IDE - VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
 # macOS
 .DS_Store
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
 
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
