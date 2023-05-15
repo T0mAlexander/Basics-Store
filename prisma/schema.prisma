@@ -1,5 +1,5 @@
 //* Prisma Schema File
-//? learn more about it in the docs: https://pris.ly/d/prisma-schema
+//? Documentation: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -14,10 +14,11 @@ model User {
   id            String         @id @default(uuid())
   name          String
   email         String         @unique
-  password      String         //TODO Convert a password into a hash
+  password      String         //TODO Remember to convert a password into a hash for security issues
   creation_date DateTime       @default(now())
   notifications Notification[]
-  cartItems     Cart[]
+  cartItems     Cart?
+  Wishlist      Wishlist?
 
   @@map("users")
 }
@@ -43,6 +44,17 @@ model Notification {
   user         User     @relation(fields: [user_id], references: [id])
   seller       Seller   @relation(fields: [seller_id], references: [seller_id])
   seller_id    String
+
+  @@map("notifications")
+}
+
+model Wishlist {
+  user_id    String    @id @unique
+  user       User      @relation(fields: [user_id], references: [id])
+  products   Product[]
+  product_id String
+
+  @@map("user_wishlist")
 }
 
 model Cart {
@@ -66,7 +78,7 @@ model CartItem {
   @@map("cart_items")
 }
 
-model Category {
+model ProductCategory {
   category_id   Int       @id @default(autoincrement())
   name          String
   creation_date DateTime  @default(now())
@@ -76,22 +88,24 @@ model Category {
 }
 
 model Product {
-  product_id      String       @id @default(uuid())
-  seller          Seller       @relation(fields: [seller_id], references: [seller_id])
+  product_id      String          @id @default(uuid())
+  seller          Seller          @relation(fields: [seller_id], references: [seller_id])
   seller_id       String
   name            String
   price           Float
   photos          Photo[]
   colours         Colour[]
   product_details Description?
-  soldCount       Int          @default(0)
-  rating          Float        @default(0)
-  quantity        Int          @default(0)
-  creation_date   DateTime     @default(now())
-  stock           Int          @default(1)
-  category        Category     @relation(fields: [category_id], references: [category_id])
+  soldCount       Int             @default(0)
+  rating          Float           @default(0)
+  quantity        Int             @default(0)
+  creation_date   DateTime        @default(now())
+  stock           Int             @default(1)
+  category        ProductCategory @relation(fields: [category_id], references: [category_id])
   category_id     Int
   isCartItem      CartItem[]
+  favouritedCount Wishlist?       @relation(fields: [wishlist_id], references: [user_id])
+  wishlist_id     String
 
   @@map("products")
 }
@@ -111,22 +125,22 @@ model Colour {
   product    Product  @relation(fields: [product_id], references: [product_id])
   product_id String
 
-  @@map("colours")
+  @@map("product_colours")
 }
 
-enum Gender {
+enum ProductGender {
   Male
   Female
   Unissex
 }
 
 model Description {
-  id         Int     @id @default(autoincrement())
-  product_id String  @unique
-  product    Product @relation(fields: [product_id], references: [product_id])
-  gender     Gender  @default(Unissex)
-  material   String  @unique
-  sleeveType String  @unique @default("normal")
+  id         Int           @id @default(autoincrement())
+  product_id String        @unique
+  product    Product       @relation(fields: [product_id], references: [product_id])
+  gender     ProductGender @default(Unissex)
+  material   String        @unique
+  sleeveType String        @unique @default("normal")
 
   @@map("product_description")
 }
