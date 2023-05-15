@@ -1,3 +1,4 @@
+# sensible directories
 node_modules/
 .expo/
 .vscode/
@@ -10,6 +11,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+prisma/migrations/
 
 # macOS
 .DS_Store
