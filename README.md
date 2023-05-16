@@ -34,13 +34,13 @@
 
 - <img height="16" width="15" style="border-radius: 30px" src="https://res.cloudinary.com/tommello/image/upload/v1683264139/express_js_icon_i3mjtq.png" /> **Express.js:** framework de desenvolvimento de aplicações web baseadas em Node.js, amplamente adotado pela comunidade de desenvolvedores. Ele permite criar APIs e aplicativos web de forma eficiente, fornecendo uma camada abstrata para lidar com tarefas comuns, como roteamento, manipulação de solicitações e respostas, gerenciamento de sessões e muito mais
 
-### 🎯 Usos futuros e previstos
-
 - <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115038/dotenv_b14c3a.svg" /> **Dotenv:** biblioteca que permite carregar variáveis de ambiente a partir de um arquivo .env. Ele facilita a configuração de variáveis sensíveis, como chaves de API, em um ambiente de desenvolvimento e produção
 
-- <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115109/jwt_de2egk.svg" /> **JSON Web Token (JWT):** padronização de tokens de acesso baseados em JSON. É amplamente utilizado para autenticação e autorização em aplicações web e APIs, permitindo o compartilhamento seguro de informações entre diferentes sistemas
-
 - <img height="16" width="15" src="https://zod.dev/logo.svg" /> **Zod:** biblioteca TypeScript poderosa e expressiva para validação de dados e inferência de tipos. Com uma sintaxe concisa, ele permite definir esquemas de validação e garantir a consistência dos dados em seu código TypeScript
+
+### 🎯 Usos futuros e previstos
+
+- <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115109/jwt_de2egk.svg" /> **JSON Web Token (JWT):** padronização de tokens de acesso baseados em JSON. É amplamente utilizado para autenticação e autorização em aplicações web e APIs, permitindo o compartilhamento seguro de informações entre diferentes sistemas
 
 ## 💾 Modelagem do Banco de Dados
 
