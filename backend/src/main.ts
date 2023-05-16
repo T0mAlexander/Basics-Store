@@ -1,8 +1,11 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { NestFactory } from '@nestjs/core'
+import { AppModule } from './app.module'
+import { Envs } from '@env/*';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-}
-bootstrap();
+(async () => {
+  const app = await NestFactory.create(AppModule)
+  await app.listen(
+    Envs.NEST_SERVER_PORT,
+    () => console.log(`🌐 Nest.js server instanced at port ${Envs.NEST_SERVER_PORT}`)
+  )
+})()
