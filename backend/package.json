@@ -14,11 +14,12 @@
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
     "test:e2e": "jest --config .test/jest-e2e.json",
-    "lint": "npx eslint --ext test/*.*spec.ts --ext src/*{.spec.ts,.ts} --fix"
+    "lint": "npx eslint --ext test/*.*spec.ts --ext src/*{.spec.ts,.ts} --ext src/**/*{.spec.ts,.ts} --ext src/**/**/*{.spec.ts,.ts} --fix"
   },
   "dependencies": {
     "@nestjs/common": "^9.4.0",
     "@nestjs/core": "^9.4.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.4.0",
     "dotenv": "^16.0.3",
     "reflect-metadata": "^0.1.13",
