@@ -1,7 +1,5 @@
 # Basics Store (em construção 🚧)
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=T0mAlexander&hide_border=true&card_width=338&theme=transparent" />
-
 > ## Descrição
 >
 > Aplicativo de e-commerce exclusivo para dispositivos móveis com similaridades sistêmicas a aplicações sólidas do mercado como as chinesas Shopee e Shein, e também brasileiras como Zattini, Netshoes e Kanui. Será necessário ter instalado Expo CLI, Expo Go, Docker e Node.js instalados para testagem da aplicação.
