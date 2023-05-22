@@ -1,5 +1,7 @@
 # Basics Store (em construção 🚧)
 
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=T0mAlexander&hide_border=true&card_width=338&theme=transparent" />
+
 > ## Descrição
 >
 > Aplicativo de e-commerce exclusivo para dispositivos móveis com similaridades sistêmicas a aplicações sólidas do mercado como as chinesas Shopee e Shein, e também brasileiras como Zattini, Netshoes e Kanui. Será necessário ter instalado Expo CLI, Expo Go, Docker e Node.js instalados para testagem da aplicação.
@@ -36,7 +38,7 @@
 
 - <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115038/dotenv_b14c3a.svg" /> **Dotenv:** biblioteca que permite carregar variáveis de ambiente a partir de um arquivo .env. Ele facilita a configuração de variáveis sensíveis, como chaves de API, em um ambiente de desenvolvimento e produção
 
-- <img height="16" width="15" src="https://zod.dev/logo.svg" /> **Zod:** biblioteca TypeScript poderosa e expressiva para validação de dados e inferência de tipos. Com uma sintaxe concisa, ele permite definir esquemas de validação e garantir a consistência dos dados em seu código TypeScript
+- <img height="16" width="15" src="https://avatars.githubusercontent.com/u/24602613?s=48&v=4" /> **class-validator:** biblioteca para validação de dados no Nest.js que utiliza decoradores para definir regras de validação nas propriedades dos objetos. Auxilia na garantia, integridade e conformidade dos dados. Importante para a segurança e consistência dos dados em aplicações web e APIs.
 
 ### 🎯 Usos futuros e previstos
 
