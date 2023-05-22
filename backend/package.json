@@ -13,7 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cover": "jest --coverage",
-    "test:e2e": "jest --config .test/jest-e2e.json",
+    "test:e2e": "jest --config test/jest-e2e.json",
     "lint": "npx eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "dependencies": {
