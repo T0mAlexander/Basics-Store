@@ -17,8 +17,8 @@ model User {
   password      String         //TODO Remember to convert a password into a hash for security issues
   creation_date DateTime       @default(now())
   notifications Notification[]
-  cartItems     Cart?
-  Wishlist      Wishlist?
+  cartItems     Cart[]
+  Wishlist      Wishlist[]
 
   @@map("users")
 }
