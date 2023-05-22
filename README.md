@@ -59,7 +59,7 @@
 | cartItems     | Relação com os itens do carrinho do usuário        |
 | Wishlist      | Relação com a lista de desejos do usuário          |
 
-### Tabela Seller 🛒
+### Tabela Seller 🏪
 
 **Descrição:** representa um vendedor na aplicação
 
