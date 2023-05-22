@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Body, Controller, Post, Res } from '@nestjs/common'
-import { UsersService } from './users.service'
-import { Response } from 'express'
-import { EmailExistsError } from './errors/EmailExists.error'
-import CreateUserDto from './dto/create-user.dto'
 import { randomUUID } from 'crypto'
+import { Response } from 'express'
+import CreateUserDto from './dto/create-user.dto'
+import { EmailExistsError } from './errors/EmailExists.error'
+import { UsersService } from './users.service'
 
 @Controller('users')
 export class UsersController {
