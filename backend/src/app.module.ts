@@ -1,18 +1,19 @@
 import { Module } from '@nestjs/common'
-import { PrismaService } from './app.service'
-import { UsersController } from './users/users.controller'
-import { UsersService } from './users/users.service'
+import { SellersModule } from './sellers/sellers.module'
+import { UsersModule } from './users/users.module'
+import { AppController } from './app.controller'
 
 //? Remember: without route controller and service providers, API requests won't work out
 
 @Module({
-  imports: [],
+  //* The API services coming from another part of the system
+  imports: [SellersModule, UsersModule],
   
   //* The route controller instance to perform requests and submissions
-  controllers: [UsersController],
+  controllers: [AppController],
 
   //* The system service to perform database queries, external API calls and data manipulation
-  providers: [PrismaService, UsersService],
+  providers: [],
 })
 
 export class AppModule {}
