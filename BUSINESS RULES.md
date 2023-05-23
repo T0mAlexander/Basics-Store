@@ -2,7 +2,7 @@
 
 ## Requisitos funcionais
 
-- [ ] Cadastro de usuários e vendedores
+- [x] Cadastro de usuários e vendedores
 - [ ] Cadastro usando serviços de terceiros (e.g Google, Facebook)
 - [ ] Confirmação de endereço de e-mail
 - [ ] Autenticação e inicialização de sessão
