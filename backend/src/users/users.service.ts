@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { Prisma, User } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { EmailExistsError } from './errors/EmailExists.error'
 import { PrismaService } from '../app.service'
+import { EmailExistsError } from '../errors/EmailExists.error'
+import { UserNotFoundError } from '../errors/UserNotFound'
 
 @Injectable()
 export class UsersService {
@@ -32,4 +33,19 @@ export class UsersService {
     return User
   }
 
+  async DeleteUser(id: string): Promise<User> {
+    const userIdExists = await this.prisma.user.findUnique({
+      where: { id }
+    })
+
+    if(!userIdExists) {
+      throw new UserNotFoundError()
+    }
+
+    const UserToDelete = await this.prisma.user.delete({
+      where: { id }
+    })
+
+    return UserToDelete
+  }
 }
