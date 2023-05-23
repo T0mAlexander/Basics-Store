@@ -1,34 +1,64 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common'
-import { SellersService } from './sellers.service'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Body, Controller, Delete, Param, Post, Res } from '@nestjs/common'
+import { randomUUID } from 'crypto'
+import { Response } from 'express'
+import { EmailExistsError } from '../errors/EmailExists.error'
+import { SellerNotFoundError } from '../errors/SellerNotFound'
 import { CreateSellerDto } from './dto/create-seller.dto'
-import { UpdateSellerDto } from './dto/update-seller.dto'
+import { SellersService } from './sellers.service'
 
 @Controller('sellers')
 export class SellersController {
-  constructor(private readonly sellersService: SellersService) {}
+  constructor(private readonly SellersService: SellersService) { }
 
   @Post()
-  create(@Body() createSellerDto: CreateSellerDto) {
-    return this.sellersService.create(createSellerDto)
-  }
+  async CreateUser(@Body() IncomingData: CreateSellerDto, @Res() Response: Response) {
+    const { name, email, password } = IncomingData
 
-  @Get()
-  findAll() {
-    return this.sellersService.findAll()
-  }
+    try {
+      const newSeller = await this.SellersService.CreateSeller({
+        seller_id: randomUUID(),
+        name,
+        email,
+        password,
+        creation_date: new Date()
+      })
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.sellersService.findOne(+id)
-  }
+      delete newSeller.password //* Hiding the password in API response body
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSellerDto: UpdateSellerDto) {
-    return this.sellersService.update(+id, updateSellerDto)
+      return Response.status(201).json(newSeller)
+    } catch (error) {
+      if (error instanceof EmailExistsError) {
+        Response.status(409).json({
+          statusCode: Response.statusCode,
+          message: 'This email already exists!',
+        })
+      }
+
+      throw error
+    }
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.sellersService.remove(+id)
+  async DeleteUser(@Param('id') sellerId: string, @Res() Response: Response) {
+
+    try {
+      await this.SellersService.DeleteUser(sellerId)
+
+      return Response.status(200).json({
+        statusCode: Response.statusCode,
+        message: 'The seller has been deleted from database!'
+      })
+    } catch (error) {
+      if (error instanceof SellerNotFoundError) {
+        Response.status(404).json({
+          statusCode: Response.statusCode,
+          message: 'Seller not found in database!'
+        })
+      }
+
+      throw error
+    }
+
   }
 }
