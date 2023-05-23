@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator'
 
-export default class CreateUserDto {
+export class CreateUserDto {
   id: string
 
   @IsString() @IsNotEmpty({ message: 'Name cannot be empty' })
