@@ -7,4 +7,5 @@ import { PrismaService } from '../app.service'
   controllers: [SellersController],
   providers: [PrismaService, SellersService]
 })
+
 export class SellersModule {}
