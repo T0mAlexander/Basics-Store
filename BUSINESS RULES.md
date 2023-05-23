@@ -19,14 +19,14 @@
 ## Regras de negócio
 
 - [ ] Expiramento de token de autenticação de sessão em 12 horas
-- [ ] Prevenção de cadastro de endereços de email duplicados
+- [x] Prevenção de cadastro de endereços de email duplicados
 - [ ] Cálculo de frete
 - [ ] Rastreamento de encomenda
 - [ ] Integração e validação de métodos de pagamentos (Pix, boleto, crédito e débito)
 - [ ] Controle de estoque
 - [ ] Prevenção de compras de produtos sem estoque disponível
 - [ ] Confirmação de compra
-- [ ] Direito ao arrependimento após 7 dias do recebimento
+- [ ] Direito ao arrependimento após 7 dias desde o recebimento do produto
 - [ ] Politícas de devolução por motivo plausível
 - [ ] Avaliação de produtos pós recebimento
 - [ ] Cálculo de avaliação de um vendedor
@@ -39,7 +39,7 @@
 
 - [ ] Persistência de dados com PostgreSQL
 - [ ] Disponibilização no idioma inglês do Reino Unido
-- [ ] Criptografia de dados sensíveis
+- [x] Criptografia de dados sensíveis
 - [ ] Identificação de usuários com JSON Web Token (JWT)
 - [ ] Performance e escalabilidade
 - [ ] Segurança de dados
