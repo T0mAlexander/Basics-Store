@@ -8,25 +8,12 @@ describe('User Registration (E2E)', () => {
   let userId: string
 
   beforeAll(async () => {
-    const moduleRef = await Test.createTestingModule({
+    const CoreModule = await Test.createTestingModule({
       imports: [AppModule]
     }).compile()
 
-    NestAppInstance = moduleRef.createNestApplication()
+    NestAppInstance = CoreModule.createNestApplication()
     await NestAppInstance.init()
-  })
-
-  test('Creating a new user', async () => {
-    const response = await request(NestAppInstance.getHttpServer())
-      .post('/users')
-      .send({
-        name: 'User',
-        email: 'test@email.com',
-        password: '123456'
-      })
-
-    expect(response.statusCode).toBe(201)
-    userId = response.body.id
   })
 
   afterAll(async () => {
@@ -37,5 +24,18 @@ describe('User Registration (E2E)', () => {
 
     // Ending the Nest.js server instance
     await NestAppInstance.close()
+  })
+
+  test('Creating a new user', async () => {
+    const response = await request(NestAppInstance.getHttpServer())
+      .post('/users')
+      .send({
+        name: 'User',
+        email: 'user@email.com',
+        password: '123456'
+      })
+
+    expect(response.statusCode).toBe(201)
+    userId = response.body.id
   })
 })

@@ -3,17 +3,17 @@ import { SellersService } from './sellers.service'
 import { PrismaService } from '../app.service'
 
 describe('SellersService', () => {
-  let service: SellersService
+  let Service: SellersService
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
+    const CoreModule: TestingModule = await Test.createTestingModule({
       providers: [PrismaService, SellersService],
     }).compile()
 
-    service = module.get<SellersService>(SellersService)
+    Service = CoreModule.get<SellersService>(SellersService)
   })
 
   it('should be defined', () => {
-    expect(service).toBeDefined()
+    expect(Service).toBeDefined()
   })
 })
