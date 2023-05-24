@@ -13,7 +13,7 @@ describe('User Routing Controller', () => {
     Service = CoreModule.get<UsersService>(UsersService)
   })
 
-  test('Service defition', () => {
+  test('User service definition', () => {
     expect(Service).toBeDefined()
   })
 })

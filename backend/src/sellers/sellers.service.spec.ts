@@ -13,7 +13,7 @@ describe('SellersService', () => {
     Service = CoreModule.get<SellersService>(SellersService)
   })
 
-  it('should be defined', () => {
+  it('Seller service definition', () => {
     expect(Service).toBeDefined()
   })
 })
