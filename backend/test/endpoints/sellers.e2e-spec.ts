@@ -1,11 +1,11 @@
 import { INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import * as request from 'supertest'
-import { AppModule } from '../src/app.module'
+import { AppModule } from '../../src/app.module'
 
-describe('User Registration (E2E)', () => {
+describe('Seller Registration (E2E)', () => {
   let NestAppInstance: INestApplication
-  let userId: string
+  let sellerId: string
 
   beforeAll(async () => {
     const CoreModule = await Test.createTestingModule({
@@ -17,25 +17,25 @@ describe('User Registration (E2E)', () => {
   })
 
   afterAll(async () => {
-    // Deleting the user after the test
+    // Deleting the seller after the test
     await request(NestAppInstance.getHttpServer())
-      .delete(`/users/${userId}`
+      .delete(`/sellers/${sellerId}`
       ).expect(200)
 
     // Ending the Nest.js server instance
     await NestAppInstance.close()
   })
 
-  test('Creating a new user', async () => {
+  test('Creating a new seller', async () => {
     const response = await request(NestAppInstance.getHttpServer())
-      .post('/users')
+      .post('/sellers')
       .send({
-        name: 'User',
-        email: 'user@email.com',
+        name: 'Seller',
+        email: 'seller@email.com',
         password: '123456'
       })
 
     expect(response.statusCode).toBe(201)
-    userId = response.body.id
+    sellerId = response.body.seller_id
   })
 })
