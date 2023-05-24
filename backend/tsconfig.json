@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@env/*": ["env"]
+      "@env/*": ["env/*"],
+      "@errors/*": ["src/errors/*"],
+      "@lib/*": ["src/lib/*"]
     },
     "module": "commonjs",
     "declaration": true,
