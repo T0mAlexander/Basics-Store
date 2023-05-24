@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { Envs } from '@env/*'
+import { Envs } from '@env/index'
 import { ValidationPipe } from '@nestjs/common'
 
 (async () => {
