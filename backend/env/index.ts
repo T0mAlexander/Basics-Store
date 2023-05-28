@@ -2,8 +2,9 @@ import 'dotenv/config'
 import { z as Zod } from 'zod'
 
 const EnvironmentSchema = Zod.object({
-  NODE_ENV: Zod.enum(['dev', 'production']).default('dev'),
-  NEST_SERVER_PORT: Zod.coerce.number().default(3333)
+  NODE_ENV: Zod.enum(['dev','test', 'production']).default('dev'),
+  NEST_SERVER_PORT: Zod.coerce.number().default(3333),
+  JWT_TOKEN: Zod.string()
 })
 
 const _Environment = EnvironmentSchema.safeParse(process.env)
