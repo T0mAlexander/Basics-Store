@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { UsersController } from './users.controller'
 import { UsersService } from './users.service'
-import { PrismaService } from '../app.service'
+import { PrismaService } from '@nest/app.service'
 
 describe('User Routing Controller', () => {
   let Controller: UsersController
@@ -15,7 +15,7 @@ describe('User Routing Controller', () => {
     Controller = CoreModule.get<UsersController>(UsersController)
   })
 
-  test('Controller defition', () => {
+  test('Users route controller definition', () => {
     expect(Controller).toBeDefined()
   })
 })

@@ -1,13 +1,13 @@
-import { CachedUserRepository } from '../../src/repositories/memory/cache-users.service'
-import { UserServiceCase } from '../../src/repositories/services/users-case.service'
+import { CachedUserRepository } from '@repositories/memory/cache-users.service'
+import { CreateUserServiceCase } from '@services/cases/users/create.service'
 
-describe('User Registration (UNT)', () => {
+describe('User Tests (UNT)', () => {
   let CacheRepository: CachedUserRepository
-  let System: UserServiceCase
+  let System: CreateUserServiceCase
 
   beforeEach(() =>{
     CacheRepository = new CachedUserRepository()
-    System = new UserServiceCase(CacheRepository)
+    System = new CreateUserServiceCase(CacheRepository)
   })
 
   test('Create a new user', async () => {

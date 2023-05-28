@@ -2,11 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@nest/*": ["src/*"],
       "@env/*": ["env/*"],
       "@errors/*": ["src/errors/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@services/*": ["src/services/*"],
+      "@factory/*": ["src/factory/*"]
     },
-    "module": "commonjs",
+    "module": "CommonJS",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,

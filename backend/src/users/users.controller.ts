@@ -2,8 +2,8 @@
 import { Body, Controller, Delete, Param, Post, Res } from '@nestjs/common'
 import { randomUUID } from 'crypto'
 import { Response } from 'express'
-import { EmailExistsError } from '../errors/EmailExists.error'
-import { UserNotFoundError } from '../errors/UserNotFound'
+import { EmailExistsError } from '@errors/EmailExists.error'
+import { UserNotFoundError } from '@errors/UserNotFound'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UsersService } from './users.service'
 
@@ -59,6 +59,5 @@ export class UsersController {
 
       throw error
     }
-
   }
 }

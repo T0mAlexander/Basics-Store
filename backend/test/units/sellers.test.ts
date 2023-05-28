@@ -1,5 +1,5 @@
-import { CachedSellerRepository } from '../../src/repositories/memory/cache-sellers.service'
-import { SellerServiceCase } from '../../src/repositories/services/sellers-case.service'
+import { CachedSellerRepository } from '@repositories/memory/cache-sellers.service'
+import { SellerServiceCase } from '@services/cases/sellers/create.service'
 
 describe('Seller Registration (UNT)', () => {
   let CacheRepository: CachedSellerRepository

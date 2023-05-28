@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { SellersService } from './sellers.service'
-import { PrismaService } from '../app.service'
+import { PrismaService } from '@nest/app.service'
 
 describe('SellersService', () => {
   let Service: SellersService
@@ -13,7 +13,7 @@ describe('SellersService', () => {
     Service = CoreModule.get<SellersService>(SellersService)
   })
 
-  it('Seller service definition', () => {
+  test('Seller service definition', () => {
     expect(Service).toBeDefined()
   })
 })

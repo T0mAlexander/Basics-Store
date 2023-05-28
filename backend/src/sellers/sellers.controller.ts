@@ -2,8 +2,8 @@
 import { Body, Controller, Delete, Param, Post, Res } from '@nestjs/common'
 import { randomUUID } from 'crypto'
 import { Response } from 'express'
-import { EmailExistsError } from '../errors/EmailExists.error'
-import { SellerNotFoundError } from '../errors/SellerNotFound'
+import { EmailExistsError } from '@errors/EmailExists.error'
+import { SellerNotFoundError } from '@errors/SellerNotFound'
 import { CreateSellerDto } from './dto/create-seller.dto'
 import { SellersService } from './sellers.service'
 

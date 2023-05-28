@@ -1,8 +1,7 @@
 import { Prisma, User } from '@prisma/client'
-import { hash } from 'bcryptjs'
 import { randomUUID } from 'crypto'
-import { EmailExistsError } from '../../errors/EmailExists.error'
-import { UserNotFoundError } from '../../errors/UserNotFound'
+import { EmailExistsError } from '@errors/EmailExists.error'
+import { UserNotFoundError } from '@errors/UserNotFound'
 import { UserRepository } from '../user.repository'
 
 export class CachedUserRepository implements UserRepository {
@@ -10,7 +9,6 @@ export class CachedUserRepository implements UserRepository {
 
   async CreateUser({ name, email, password }: Prisma.UserCreateInput) {
     const EmailExists = this.item.find(user => user.email === email)
-    const password_secure = await hash(password, 6)
 
     if(EmailExists) {
       throw new EmailExistsError()
@@ -19,11 +17,11 @@ export class CachedUserRepository implements UserRepository {
     const User = {
       id: randomUUID(),
       name, email,
-      password: password_secure,
+      password,
       creation_date: new Date()
     }
 
-    this.item.push()
+    this.item.push(User)
     return User
   }
 
@@ -40,13 +38,13 @@ export class CachedUserRepository implements UserRepository {
   }
 
   async FindByEmail(email: string): Promise<User | null> {
-    const user = this.item.find(user => user.email === email)
+    const User = this.item.find(user => user.email === email)
     
-    if (!user) {
+    if (!User) {
       return null
     }
 
-    return user
+    return User
   }
 
   async FindById(id: string): Promise<User | null> {

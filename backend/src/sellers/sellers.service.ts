@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { Prisma, Seller } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { PrismaService } from '../app.service'
-import { EmailExistsError } from '../errors/EmailExists.error'
-import { SellerNotFoundError } from '../errors/SellerNotFound'
+import { PrismaService } from '@nest/app.service'
+import { EmailExistsError } from '@errors/EmailExists.error'
+import { SellerNotFoundError } from '@errors/SellerNotFound'
 
 @Injectable()
 export class SellersService {

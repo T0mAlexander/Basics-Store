@@ -1,8 +1,8 @@
 import { Prisma, Seller } from '@prisma/client'
 import { hash } from 'bcryptjs'
 import { randomUUID } from 'crypto'
-import { EmailExistsError } from '../../errors/EmailExists.error'
-import { UserNotFoundError } from '../../errors/UserNotFound'
+import { EmailExistsError } from '@errors/EmailExists.error'
+import { UserNotFoundError } from '@errors/UserNotFound'
 import { SellerRepository } from '../seller.repository'
 
 export class CachedSellerRepository implements SellerRepository {

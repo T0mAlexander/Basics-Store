@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import * as request from 'supertest'
-import { AppModule } from '../../src/app.module'
+import { AppModule } from '@nest/app.module'
 
 describe('User Registration (E2E)', () => {
   let NestAppInstance: INestApplication

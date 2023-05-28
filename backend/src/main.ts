@@ -1,7 +1,7 @@
-import { NestFactory } from '@nestjs/core'
-import { AppModule } from './app.module'
 import { Envs } from '@env/index'
+import { AppModule } from '@nest/app.module'
 import { ValidationPipe } from '@nestjs/common'
+import { NestFactory } from '@nestjs/core'
 
 (async () => {
   const app = await NestFactory.create(AppModule)
