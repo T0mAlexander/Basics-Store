@@ -3,9 +3,9 @@
 ## Requisitos funcionais
 
 - [x] Cadastro de usuários e vendedores
+- [x] Autenticação de sessão
 - [ ] Cadastro usando serviços de terceiros (e.g Google, Facebook)
 - [ ] Confirmação de endereço de e-mail
-- [ ] Autenticação e inicialização de sessão
 - [ ] Recuperação de senha via e-mail
 - [ ] Bloqueio de contas após 3 tentativas falhas de sessão
 - [ ] Alertas de múltiplas tentativas falhas no e-mail
@@ -18,7 +18,7 @@
 
 ## Regras de negócio
 
-- [ ] Expiramento de token de autenticação de sessão em 12 horas
+- [x] Expiramento de token de autenticação de sessão em 12 horas
 - [x] Prevenção de cadastro de endereços de email duplicados
 - [ ] Cálculo de frete
 - [ ] Rastreamento de encomenda
@@ -40,7 +40,6 @@
 - [ ] Persistência de dados com PostgreSQL
 - [ ] Disponibilização no idioma inglês do Reino Unido
 - [x] Criptografia de dados sensíveis
-- [ ] Identificação de usuários com JSON Web Token (JWT)
 - [ ] Performance e escalabilidade
 - [ ] Segurança de dados
 - [ ] Compartilhamento de lista de desejos
