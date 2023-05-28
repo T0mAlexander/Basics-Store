@@ -31,7 +31,8 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.17",
     "@types/jest": "29.5.1",
-    "@types/node": "20.2.3",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/node": "20.2.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
     "@typescript-eslint/parser": "^5.59.7",
@@ -41,6 +42,7 @@
     "dotenv": "^16.0.3",
     "eslint": "^8.41.0",
     "jest": "29.5.0",
+    "jsonwebtoken": "^9.0.0",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.3",
     "ts-jest": "29.1.0",
@@ -65,6 +67,16 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@nest/(.*)$": "<rootDir>/src/$1",
+      "^@env/(.*)$": "<rootDir>/env/index.ts",
+      "^@errors/(.*)$": "<rootDir>/src/errors/$1",
+      "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+      "^@repositories/(.*)$": "<rootDir>/src/repositories/$1",
+      "^@services/(.*)$": "<rootDir>/src/services/$1",
+      "^@factory/(.*)$": "<rootDir>/src/factory/$1"
+    }
+    
   }
 }
