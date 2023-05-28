@@ -1,5 +1,4 @@
 import { Prisma, Seller } from '@prisma/client'
-import { hash } from 'bcryptjs'
 import { randomUUID } from 'crypto'
 import { EmailExistsError } from '@errors/EmailExists.error'
 import { UserNotFoundError } from '@errors/UserNotFound'
@@ -9,22 +8,21 @@ export class CachedSellerRepository implements SellerRepository {
   public item: Seller[] = []
 
   async CreateSeller({ name, email, password }: Prisma.SellerCreateInput) {
-    const EmailExists = this.item.find(user => user.email === email)
-    const password_secure = await hash(password, 6)
+    const EmailExists = this.item.find(seller => seller.email === email)
 
     if(EmailExists) {
       throw new EmailExistsError()
     }
 
-    const User = {
+    const Seller = {
       seller_id: randomUUID(),
       name, email,
-      password: password_secure,
+      password,
       creation_date: new Date()
     }
 
-    this.item.push()
-    return User
+    this.item.push(Seller)
+    return Seller
   }
 
   async DeleteSeller(id: string): Promise<Seller> {
@@ -33,20 +31,20 @@ export class CachedSellerRepository implements SellerRepository {
     if(!seller) {
       throw new UserNotFoundError()
     } else {
-      const UserFound = this.item.shift()
+      const SellerFound = this.item.shift()
 
-      return UserFound
+      return SellerFound
     }
   }
 
   async FindByEmail(email: string): Promise<Seller | null> {
-    const user = this.item.find(user => user.email === email)
+    const seller = this.item.find(seller => seller.email === email)
     
-    if (!user) {
+    if (!seller) {
       return null
     }
 
-    return user
+    return seller
   }
 
   async FindById(id: string): Promise<Seller | null> {
