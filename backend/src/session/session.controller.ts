@@ -7,10 +7,10 @@ import { Controller, Post, Req, Res } from '@nestjs/common'
 import { Request, Response } from 'express'
 import * as JWT from 'jsonwebtoken'
 
-@Controller('session')
+@Controller('auth')
 export class SessionController {
 
-  @Post()
+  @Post('user')
   async AuthUser(@Req() Request: Request, @Res() Response: Response) {
     const { email, password } = Request.body // Capturing the incoming user data in API request body
 
@@ -44,7 +44,7 @@ export class SessionController {
     }
   }
 
-  @Post()
+  @Post('seller')
   async AuthSeller(@Req() Request: Request, @Res() Response: Response) {
     const { email, password } = Request.body // Capturing the incoming user data in API request body
 
