@@ -22,5 +22,4 @@ export class PrismaSellerRepository implements SellerRepository {
       where: { email }
     })
   }
-  
 }
