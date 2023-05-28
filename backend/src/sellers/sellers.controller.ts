@@ -6,6 +6,7 @@ import { EmailExistsError } from '@errors/EmailExists.error'
 import { SellerNotFoundError } from '@errors/SellerNotFound'
 import { CreateSellerDto } from './dto/create-seller.dto'
 import { SellersService } from './sellers.service'
+import { SellerCreationFactory } from '@factory/seller/registration.factory'
 
 @Controller('sellers')
 export class SellersController {
@@ -16,17 +17,15 @@ export class SellersController {
     const { name, email, password } = IncomingData
 
     try {
-      const newSeller = await this.SellersService.CreateSeller({
-        seller_id: randomUUID(),
-        name,
-        email,
-        password,
-        creation_date: new Date()
+      const SellerCreation = SellerCreationFactory()
+
+      const { Seller } = await SellerCreation.CreateSeller({
+        name, email, password
       })
 
-      delete newSeller.password //* Hiding the password in API response body
+      delete Seller.password //* Hiding the password in API response body
 
-      return Response.status(201).json(newSeller)
+      return Response.status(201).json(Seller)
     } catch (error) {
       if (error instanceof EmailExistsError) {
         Response.status(409).json({

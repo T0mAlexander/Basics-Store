@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Body, Controller, Delete, Param, Post, Res } from '@nestjs/common'
-import { randomUUID } from 'crypto'
 import { Response } from 'express'
 import { EmailExistsError } from '@errors/EmailExists.error'
 import { UserNotFoundError } from '@errors/UserNotFound'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UsersService } from './users.service'
+import { UserCreationFactory } from '@factory/user/registration.factory'
 
 @Controller('users')
 export class UsersController {
@@ -16,17 +16,15 @@ export class UsersController {
     const { name, email, password } = IncomingData
 
     try {
-      const newUser = await this.UsersService.CreateUser({
-        id: randomUUID(),
-        name,
-        email,
-        password,
-        creation_date: new Date()
+      const UserCreation = UserCreationFactory()
+
+      const { User } = await UserCreation.CreateUser({
+        name, email, password
       })
 
-      delete newUser.password //* Hiding the password in API response body
+      delete User.password //* Hiding the password in API response body
 
-      return Response.status(201).json(newUser)
+      return Response.status(201).json(User)
     } catch (error) {
       if (error instanceof EmailExistsError) {
         Response.status(409).json({
