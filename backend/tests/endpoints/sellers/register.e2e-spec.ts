@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing'
 import * as request from 'supertest'
 import { AppModule } from '@nest/app.module'
 
-describe('Seller Registration (E2E)', () => {
+describe('Seller registration (E2E)', () => {
   let NestAppInstance: INestApplication
   let sellerId: string
 

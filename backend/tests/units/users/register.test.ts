@@ -1,7 +1,7 @@
 import { CachedUserRepository } from '@repositories/memory/cache-users.service'
 import { CreateUserServiceCase } from '@services/cases/users/create.service'
 
-describe('User Tests (UNT)', () => {
+describe('User registration (UNT)', () => {
   let CacheRepository: CachedUserRepository
   let System: CreateUserServiceCase
 

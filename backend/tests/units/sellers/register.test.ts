@@ -1,13 +1,13 @@
 import { CachedSellerRepository } from '@repositories/memory/cache-sellers.service'
-import { SellerServiceCase } from '@services/cases/sellers/create.service'
+import { CreateSellerServiceCase } from '@services/cases/sellers/create.service'
 
-describe('Seller Registration (UNT)', () => {
+describe('Seller registration (UNT)', () => {
   let CacheRepository: CachedSellerRepository
-  let System: SellerServiceCase
+  let System: CreateSellerServiceCase
 
   beforeEach(() =>{
     CacheRepository = new CachedSellerRepository()
-    System = new SellerServiceCase(CacheRepository)
+    System = new CreateSellerServiceCase(CacheRepository)
   })
 
   test('Create a new seller', async () => {

@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs'
 import { CachedUserRepository } from '@repositories/memory/cache-users.service'
 import { UserAuthServiceCase } from '@services/cases/users/session-auth.service'
 
-describe('Session authentication (UNT)', () => {
+describe('User session auth (UNT)', () => {
   let CacheRepository: CachedUserRepository
   let System: UserAuthServiceCase
 
