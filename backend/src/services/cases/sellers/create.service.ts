@@ -1,6 +1,6 @@
-import { EmailExistsError } from '@errors/EmailExists.error'
 import { Seller } from '@prisma/client'
 import { hash } from 'bcryptjs'
+import { EmailExistsError } from '@errors/EmailExists.error'
 import { SellerRepository } from '@repositories/seller.repository'
 
 interface RegisterRequest {
@@ -13,7 +13,7 @@ interface RegisterResponse {
   Seller: Seller
 }
 
-export class SellerServiceCase {
+export class CreateSellerServiceCase {
   constructor(private repository: SellerRepository) { }
 
   async CreateSeller({ name, email, password }: RegisterRequest): Promise<RegisterResponse> {
