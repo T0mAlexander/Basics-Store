@@ -38,9 +38,11 @@
 
 - <img height="16" width="15" src="https://avatars.githubusercontent.com/u/24602613?s=48&v=4" /> **class-validator:** biblioteca para validação de dados no Nest.js que utiliza decoradores para definir regras de validação nas propriedades dos objetos. Auxilia na garantia, integridade e conformidade dos dados. Importante para a segurança e consistência dos dados em aplicações web e APIs.
 
+- <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115109/jwt_de2egk.svg" /> **JSON Web Token (JWT):** padronização de tokens de acesso baseados em JSON. É amplamente utilizado para autenticação e autorização em aplicações web e APIs, permitindo o compartilhamento seguro de informações entre diferentes sistemas
+
 ### 🎯 Usos futuros e previstos
 
-- <img height="16" width="15" src="https://res.cloudinary.com/tommello/image/upload/v1684115109/jwt_de2egk.svg" /> **JSON Web Token (JWT):** padronização de tokens de acesso baseados em JSON. É amplamente utilizado para autenticação e autorização em aplicações web e APIs, permitindo o compartilhamento seguro de informações entre diferentes sistemas
+> Sem previsões de uso até o momento de novas bibliotecas e/ou frameworks!
 
 ## 💾 Modelagem do Banco de Dados
 
