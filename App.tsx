@@ -10,7 +10,8 @@ import { SafeAreaView, StatusBar } from 'react-native'
 import { light, dark } from '@theme/index'
 import Routes from '@routes/routes'
 import * as NavigationBar from 'expo-navigation-bar'
-import Home from '@screens/Home'
+import Login from '@screens/Login'
+import { Home } from '@screens/Home'
 
 export default function App() {
   const [Fonts] = useFonts({
@@ -41,7 +42,7 @@ export default function App() {
           <Routes />
         </SafeAreaView>
       ) : (
-        <Home />
+        <Login />
       )}
     </ThemeProvider>
   )
